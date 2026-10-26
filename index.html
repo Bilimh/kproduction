@@ -83,7 +83,116 @@
 .lb-caption{max-width:80vw;text-align:center;white-space:normal;line-height:1.5}
 @media(max-width:700px){.work-filters{margin:-15px 0 24px;align-items:flex-start;flex-direction:column;gap:12px}.filter-buttons{gap:7px}.filter-buttons button{padding:8px 11px;font-size:10px}.services{grid-template-columns:1fr;gap:38px;padding:80px 6vw}.service-list{grid-template-columns:1fr 1fr;gap:0 20px}.contact-links{font-size:13px}.social-links{gap:14px}}
 @media(max-width:420px){.service-list{grid-template-columns:1fr}.services-intro h2{font-size:15vw}.contact-foot{gap:16px;flex-direction:column}}
-.arrow-icon{display:inline-block;width:.8em;height:.8em;vertical-align:-.1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.arrow-icon.arrow-up-right{width:.72em;height:.72em}.navlight .arrow-icon{width:1em;height:1em}</style></head><body><header><a href="#top" class="brand">K-PRODUCTION</a><nav class="menu"><a href="#experience">Expérience</a><a href="#oeuvres">Œuvres</a><a href="#pellicule">Pellicule</a><a href="#apropos">À propos</a><a href="#prestations">Prestations</a><a href="#contact">Contact</a></nav></header><main><section class="intro" id="top"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1800&q=85" alt="Scène photographique immersive"><div class="intro-content"><div class="eyebrow">K-PRODUCTION · PHOTOGRAPHIE SANS FRONTIÈRES</div><h1 class="hero-title">K<em>Production.</em></h1><div class="eyebrow">Mahan Diabaté · Un regard. Mille histoires.</div></div><div class="hero-foot"><span>Art · Émotion · Mouvement</span></div></section><section class="story" id="experience"><div class="stage"><div class="stage-bg"></div><div class="stage-label">Une exposition en mouvement</div><div class="stage-message">Chaque image<br>change la perspective.</div><div class="stage-count">∞</div><div class="art" data-caption="01 — L'instant" data-index="0"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=85" alt="Mariage"></div><div class="art" data-caption="02 — Le mouvement" data-index="1"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=900&q=85" alt="Concert"></div><div class="art" data-caption="03 — Le regard" data-index="2"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=85" alt="Portrait"></div><div class="art" data-caption="04 — La ville" data-index="3"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900&q=85" alt="Ville nocturne"></div><div class="art" data-caption="05 — La lumière" data-index="4"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=85" alt="Événement"></div></div></section><section class="gallery" id="oeuvres"><div class="gallery-head"><h2>Le mur<br>des instants.</h2><p>Des fragments de vie, des traces, des rencontres. Explorez librement ce mur d’atelier : chaque photographie est une histoire à ouvrir.</p></div><nav class="work-filters" aria-label="Filtrer les photographies"><span class="filter-label">Explorer par spécialité</span><div class="filter-buttons"></div></nav><div class="wall" id="wall" aria-label="Mur de souvenirs photographiques, toutes les miniatures visibles"><div class="wall-inner" id="wallInner"><svg class="wall-thread" viewBox="0 0 2300 1450" aria-hidden="true"><path d="M280 250 Q 480 170 700 390 T 1210 270 T 1710 520 M 500 950 Q 920 780 1120 1020 T 1940 900 M 1200 270 Q 1370 630 1550 850"/></svg><div class="wall-note" style="left:1000px;top:470px">La beauté est dans<br>l’instant.</div><div class="wall-note" style="left:1770px;top:1110px;transform:rotate(7deg)">Fragments du monde <svg class="arrow-icon arrow-up-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></div><span class="wall-decoration" style="left:140px;top:540px">Archives / 2026</span><span class="wall-decoration" style="left:1930px;top:180px">Notes de lumière</span></div></div><div class="wall-hint"><span>Cliquer sur une photographie pour découvrir les souvenirs</span></div></section><section class="film-section" id="pellicule"><div class="film-heading"><h2>La mémoire<br>sur pellicule.</h2><p>UNE AUTRE MANIÈRE DE TRAVERSER L’EXPOSITION. LA PELLICULE DÉFILE EN CONTINU <svg class="arrow-icon arrow-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></p></div><div class="film-viewport" aria-label="Pellicule photographique défilante" tabindex="0"><div class="film-strip" id="filmStrip"></div></div><div class="film-legend"><span>35 MM — ARCHIVES VIVANTES</span></div></section><section class="about" id="apropos" aria-labelledby="about-title">
+.arrow-icon{display:inline-block;width:.8em;height:.8em;vertical-align:-.1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.arrow-icon.arrow-up-right{width:.72em;height:.72em}.navlight .arrow-icon{width:1em;height:1em}/* Animation du hero uniquement */
+.intro{isolation:isolate;perspective:1200px}
+.intro>img{animation:hero-backdrop 22s ease-in-out infinite alternate}
+.intro-content{animation:hero-arrive 1.1s cubic-bezier(.2,.75,.25,1) both}
+.hero-title{text-shadow:0 12px 42px #0008}
+.hero-title em{animation:hero-title-shift 1.2s .18s cubic-bezier(.2,.75,.25,1) both}
+.hero-orbit{position:absolute;inset:0;z-index:2;pointer-events:none;transform-style:preserve-3d}
+.hero-card{position:absolute;width:clamp(112px,15vw,220px);aspect-ratio:3/4;padding:7px;background:#e8e3d8;box-shadow:0 24px 65px #0009;transform-style:preserve-3d;opacity:0;animation:hero-card-in .9s cubic-bezier(.2,.75,.25,1) both,hero-float 6s 1s ease-in-out infinite}
+.hero-card img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.78)}
+.hero-card-a{left:12%;top:20%;--turn:-9deg;--lift:-13px;animation-delay:.28s,1.28s}
+.hero-card-b{right:13%;top:18%;width:clamp(100px,12vw,180px);--turn:8deg;--lift:-17px;animation-delay:.45s,1.45s}
+.hero-card-c{right:22%;bottom:9%;width:clamp(88px,10vw,150px);--turn:-5deg;--lift:-10px;animation-delay:.62s,1.62s}
+.hero-orbit:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 20%,#08080755);z-index:1}
+.hero-foot{animation:hero-foot-in .8s .65s both}
+@keyframes hero-backdrop{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+@keyframes hero-arrive{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes hero-title-shift{from{opacity:0;transform:translate(7vw,18px)}to{opacity:1;transform:translateX(7vw)}}
+@keyframes hero-card-in{from{opacity:0;transform:translate3d(0,35px,-100px) rotate(var(--turn)) scale(.86)}to{opacity:.92;transform:translate3d(0,0,0) rotate(var(--turn)) scale(1)}}
+@keyframes hero-float{0%,100%{transform:translate3d(0,0,0) rotate(var(--turn))}50%{transform:translate3d(0,var(--lift),24px) rotate(calc(var(--turn) + 1deg))}}
+@keyframes hero-foot-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.hero-card-a{left:-2%;top:24%;width:clamp(78px,23vw,125px)}.hero-card-b{right:-2%;top:21%;width:clamp(75px,21vw,115px)}.hero-card-c{right:5%;bottom:12%;width:clamp(68px,18vw,100px)}.hero-orbit:after{background:radial-gradient(ellipse at center,transparent 4%,#08080755)}}
+@media(prefers-reduced-motion:reduce){.intro>img,.intro-content,.hero-title em,.hero-card,.hero-foot{animation:none!important;opacity:1}.hero-title em{transform:translateX(7vw)}.hero-card{transform:rotate(var(--turn));}}
+
+/* Hero : composition éditoriale cinématographique */
+.intro{background:#111;min-height:680px}
+.intro:before{background:linear-gradient(90deg,#080807b8 0%,#08080726 48%,#08080778 100%),linear-gradient(0deg,#10100f 0%,transparent 35%,#08080730 100%);z-index:3}
+.intro>img{filter:brightness(.48) saturate(.72);animation:hero-scene-drift 28s ease-in-out infinite alternate}
+.hero-orbit{z-index:2;perspective:1400px}
+.hero-orbit:before{content:"";position:absolute;inset:12% 17%;border:1px solid #fff2;border-radius:50%;transform:rotate(-17deg) scaleY(.54);box-shadow:0 0 90px #d6ad7855;animation:hero-ring 18s linear infinite}
+.hero-orbit:after{z-index:4;background:radial-gradient(ellipse at 50% 46%,transparent 12%,#08080722 58%,#08080788 100%)}
+.hero-card{width:clamp(150px,19vw,285px);padding:8px;background:#e7e2d7;box-shadow:0 35px 100px #000b;opacity:0;animation:hero-card-enter 1.1s cubic-bezier(.16,1,.3,1) both,hero-card-drift 8s 1.1s ease-in-out infinite}
+.hero-card img{filter:saturate(.72) contrast(1.06)}
+.hero-card:before{content:"";position:absolute;inset:8px;z-index:1;border:1px solid #fff5;pointer-events:none}
+.hero-card-a{left:8%;top:23%;--turn:-11deg;--tilt:2deg;--lift:-17px;animation-delay:.15s,1.25s}
+.hero-card-b{right:9%;top:17%;width:clamp(135px,16vw,235px);--turn:9deg;--tilt:-3deg;--lift:-22px;animation-delay:.36s,1.46s}
+.hero-card-c{right:25%;bottom:7%;width:clamp(115px,13vw,190px);--turn:-7deg;--tilt:4deg;--lift:-14px;animation-delay:.56s,1.66s}
+.intro-content{z-index:5;width:min(100%,1200px);padding:0 24px;animation:hero-copy-enter 1.2s .18s cubic-bezier(.16,1,.3,1) both}
+.intro-content .eyebrow:first-child{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;color:#e6d1b4}
+.intro-content .eyebrow:first-child:before,.intro-content .eyebrow:first-child:after{content:"";width:28px;height:1px;background:#d6ad78}
+.hero-title{margin:38px 0 30px;font-size:clamp(88px,15.5vw,250px);letter-spacing:-.07em;line-height:.7;text-shadow:0 8px 70px #000b}
+.hero-title em{padding-right:.09em;animation:hero-title-reveal 1.2s .32s cubic-bezier(.16,1,.3,1) both}
+.intro-content .eyebrow:last-child{font-size:10px;letter-spacing:.28em;color:#e7e1d8}
+.hero-actions{display:flex;justify-content:center;align-items:center;gap:28px;margin-top:38px}
+.hero-cta{display:inline-flex;align-items:center;gap:20px;padding:14px 19px;border:1px solid #eee8dc88;font-size:10px;letter-spacing:.16em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s}
+.hero-cta:hover{background:#e9e4d9;color:#171714;border-color:#e9e4d9}
+.hero-cta span{font-size:18px;line-height:.6}
+.hero-explore{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#eee8dcad}
+.hero-foot{z-index:5;align-items:center;animation:hero-foot-in .8s 1s both}
+.hero-foot:after{content:"";position:absolute;left:50%;bottom:-19px;width:1px;height:30px;background:linear-gradient(#e9e4d9aa,transparent);animation:hero-cue 1.7s 1.4s ease-in-out infinite}
+@keyframes hero-scene-drift{from{transform:scale(1.02) translate3d(-.5%,0,0)}to{transform:scale(1.11) translate3d(.5%,-.4%,0)}}
+@keyframes hero-ring{to{transform:rotate(343deg) scaleY(.54)}}
+@keyframes hero-card-enter{from{opacity:0;filter:blur(8px);transform:translate3d(0,65px,-180px) rotate(var(--turn)) scale(.8)}to{opacity:.94;filter:blur(0);transform:translate3d(0,0,0) rotate(var(--turn)) scale(1)}}
+@keyframes hero-card-drift{0%,100%{transform:translate3d(0,0,0) rotate(var(--turn)) rotateY(var(--tilt))}50%{transform:translate3d(0,var(--lift),35px) rotate(calc(var(--turn) + 1.3deg)) rotateY(calc(var(--tilt) * -1))}}
+@keyframes hero-copy-enter{from{opacity:0;transform:translateY(30px) translateZ(90px)}to{opacity:1;transform:translateY(0) translateZ(90px)}}
+@keyframes hero-title-reveal{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translate(7vw,24px)}to{opacity:1;clip-path:inset(0);transform:translateX(7vw)}}
+@keyframes hero-cue{0%,100%{transform:scaleY(.55);transform-origin:top;opacity:.35}50%{transform:scaleY(1);transform-origin:top;opacity:1}}
+@media(max-width:700px){
+.intro{min-height:600px}
+.intro-content{padding:0 12px}
+.hero-title{font-size:20vw;margin:32px 0 24px}
+.hero-card-a{left:-3%;top:25%;width:clamp(90px,27vw,145px)}
+.hero-card-b{right:-4%;top:20%;width:clamp(82px,24vw,130px)}
+.hero-card-c{right:8%;bottom:9%;width:clamp(72px,21vw,112px)}
+.hero-orbit:before{inset:20% 5%;opacity:.55}
+.hero-actions{gap:14px;margin-top:28px;flex-direction:column}
+.hero-cta{padding:12px 15px}
+.hero-explore{font-size:8px}
+.intro-content .eyebrow:first-child{font-size:8px;letter-spacing:.2em}
+.intro-content .eyebrow:last-child{font-size:8px;letter-spacing:.16em}
+.hero-foot{bottom:25px}
+}
+@media(prefers-reduced-motion:reduce){.intro>img,.hero-orbit:before,.hero-card,.intro-content,.hero-title em,.hero-foot:after{animation:none!important}.hero-card{opacity:.9;filter:none;transform:rotate(var(--turn))}.intro-content{opacity:1;transform:none}.hero-title em{clip-path:none;transform:translateX(7vw)}}
+
+/* Ouverture de diaphragme et flash photo au chargement */
+.hero-orbit:before{display:none}
+.hero-shutter{position:absolute;inset:0;z-index:8;pointer-events:none;overflow:hidden}
+.hero-shutter:before{content:"";position:absolute;left:50%;top:50%;width:0;height:0;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 120vmax #10100f;animation:photo-aperture-open 1.35s .08s cubic-bezier(.16,1,.3,1) both}
+.hero-shutter:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,#fff9ed 0%,#fff9edaa 18%,transparent 68%);opacity:0;animation:photo-flash .25s .48s ease-out forwards}
+@keyframes photo-aperture-open{0%{width:0;height:0;box-shadow:0 0 0 120vmax #10100f}100%{width:220vmax;height:220vmax;box-shadow:0 0 0 120vmax #10100f}}
+@keyframes photo-flash{0%{opacity:.92}12%{opacity:.7}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-shutter{display:none}}
+
+/* Le flash reste bref, l’ouverture prend le temps de se déployer */
+.hero-shutter:before{animation:photo-aperture-open 1.03s .12s cubic-bezier(.4,0,.2,1) both}
+@keyframes photo-aperture-open{
+0%,12%{width:8vw;height:8vw;box-shadow:0 0 0 120vmax #10100f}
+60%{width:70vmax;height:70vmax}
+86%{width:140vmax;height:140vmax;box-shadow:0 0 0 120vmax #10100f}
+100%{width:220vmax;height:220vmax;box-shadow:0 0 0 120vmax #10100f}
+}
+
+/* Apparition aléatoire des photos du mur, en éclats rapides */
+.wall.wall-reveal .wall-item{animation:wall-photo-flash .28s var(--flash-delay,0ms) backwards}
+@keyframes wall-photo-flash{
+0%{opacity:0;filter:brightness(3.2) saturate(.3)}
+38%{opacity:1;filter:brightness(1.85) saturate(.75)}
+100%{opacity:1;filter:none}
+}
+@media(prefers-reduced-motion:reduce){.wall.wall-reveal .wall-item{animation:none}}
+
+/* Révélations au défilement : développement photo des textes et blocs */
+.photo-reveal-pending{opacity:0;transform:translateY(20px);filter:blur(4px)}
+.photo-reveal-active{animation:photo-develop .72s var(--photo-delay,0ms) cubic-bezier(.2,.72,.25,1) both}
+@keyframes photo-develop{
+0%{opacity:0;transform:translateY(20px);filter:brightness(2.5) blur(4px)}
+36%{opacity:1;filter:brightness(1.45) blur(.5px)}
+100%{opacity:1;transform:translateY(0);filter:none}
+}
+@media(prefers-reduced-motion:reduce){.photo-reveal-pending{opacity:1;transform:none;filter:none}.photo-reveal-active{animation:none}}
+</style></head><body><header><a href="#top" class="brand">K-PRODUCTION</a><nav class="menu"><a href="#experience">Expérience</a><a href="#oeuvres">Œuvres</a><a href="#pellicule">Pellicule</a><a href="#apropos">À propos</a><a href="#prestations">Prestations</a><a href="#contact">Contact</a></nav></header><main><section class="intro" id="top"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1800&q=85" alt="Scène photographique immersive"><div class="hero-orbit" aria-hidden="true"><figure class="hero-card hero-card-a"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&amp;q=80" alt=""></figure><figure class="hero-card hero-card-b"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=450&amp;q=80" alt=""></figure></div><div class="intro-content"><div class="eyebrow">K-PRODUCTION · PHOTOGRAPHIE SANS FRONTIÈRES</div><h1 class="hero-title">K<em>Production.</em></h1><div class="eyebrow">Mahan Diabaté · Un regard. Mille histoires.</div><div class="hero-actions"><a class="hero-cta" href="#oeuvres">Découvrir les images <span aria-hidden="true">↗</span></a><a class="hero-explore" href="#experience">Explorer l’expérience ↓</a></div></div><div class="hero-foot"><span>Art · Émotion · Mouvement</span></div><div class="hero-shutter" aria-hidden="true"></div></section><section class="story" id="experience"><div class="stage"><div class="stage-bg"></div><div class="stage-label">Une exposition en mouvement</div><div class="stage-message">Chaque image<br>change la perspective.</div><div class="stage-count">∞</div><div class="art" data-caption="01 — L'instant" data-index="0"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=85" alt="Mariage"></div><div class="art" data-caption="02 — Le mouvement" data-index="1"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=900&q=85" alt="Concert"></div><div class="art" data-caption="03 — Le regard" data-index="2"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=85" alt="Portrait"></div><div class="art" data-caption="04 — La ville" data-index="3"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900&q=85" alt="Ville nocturne"></div><div class="art" data-caption="05 — La lumière" data-index="4"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=85" alt="Événement"></div></div></section><section class="gallery" id="oeuvres"><div class="gallery-head"><h2>Le mur<br>des instants.</h2><p>Des fragments de vie, des traces, des rencontres. Explorez librement ce mur d’atelier : chaque photographie est une histoire à ouvrir.</p></div><nav class="work-filters" aria-label="Filtrer les photographies"><span class="filter-label">Explorer par spécialité</span><div class="filter-buttons"></div></nav><div class="wall" id="wall" aria-label="Mur de souvenirs photographiques, toutes les miniatures visibles"><div class="wall-inner" id="wallInner"><svg class="wall-thread" viewBox="0 0 2300 1450" aria-hidden="true"><path d="M280 250 Q 480 170 700 390 T 1210 270 T 1710 520 M 500 950 Q 920 780 1120 1020 T 1940 900 M 1200 270 Q 1370 630 1550 850"/></svg><div class="wall-note" style="left:1000px;top:470px">La beauté est dans<br>l’instant.</div><div class="wall-note" style="left:1770px;top:1110px;transform:rotate(7deg)">Fragments du monde <svg class="arrow-icon arrow-up-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></div><span class="wall-decoration" style="left:140px;top:540px">Archives / 2026</span><span class="wall-decoration" style="left:1930px;top:180px">Notes de lumière</span></div></div><div class="wall-hint"><span>Cliquer sur une photographie pour découvrir les souvenirs</span></div></section><section class="film-section" id="pellicule"><div class="film-heading"><h2>La mémoire<br>sur pellicule.</h2><p>UNE AUTRE MANIÈRE DE TRAVERSER L’EXPOSITION. LA PELLICULE DÉFILE EN CONTINU <svg class="arrow-icon arrow-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></p></div><div class="film-viewport" aria-label="Pellicule photographique défilante" tabindex="0"><div class="film-strip" id="filmStrip"></div></div><div class="film-legend"><span>35 MM — ARCHIVES VIVANTES</span></div></section><section class="about" id="apropos" aria-labelledby="about-title">
  <div class="about-top"><span class="about-label">L’ARTISTE DERRIÈRE L’OBJECTIF</span><span class="about-coordinate">DE DAKAR AU MONDE <svg class="arrow-icon arrow-up-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></div>
  <div class="about-composition" aria-hidden="true"><div class="about-photo about-photo-one"><img loading="lazy" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=85" alt=""></div><div class="about-photo about-photo-two"><img loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&q=85" alt=""></div><div class="about-scribble">Toujours à l’affût<br>de l’instant juste.</div><span class="about-stamp">LE REGARD<br>AVANT TOUT</span></div>
  <div class="about-copy"><span class="about-kicker">PORTRAIT D’ARTISTE · MAHAN DIABATÉ</span><h2 id="about-title">Là où la vie<br><em>se raconte.</em></h2><p class="about-lead">Originaire de Dakar, <strong>Mahan Diabaté</strong> porte son regard bien au-delà des frontières. De l’Afrique à l’Europe, jusqu’au Moyen-Orient, il voyage au rythme des rencontres et des événements qu’il immortalise.</p><p>Mariages, baptêmes, événements professionnels : il saisit les regards, les gestes et les instants qui restent longtemps après la fête. Retrouvez ses dernières images sur <a href="https://instagram.com/kprod" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="1.2"/></svg><span>Instagram</span> <svg class="arrow-icon arrow-up-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>.</p><div class="about-tags"><span>MARIAGES</span><span>BAPTÊMES</span><span>ÉVÉNEMENTS PRO</span><span>REPORTAGE</span></div><a class="about-link" href="#contact">Racontez-lui votre événement <span aria-hidden="true"><svg class="arrow-icon arrow-up-right" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></div>
@@ -142,6 +251,20 @@ function layoutWall(){
 }
 new ResizeObserver(layoutWall).observe(wall);
 layoutWall();
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ const revealOrder=[...wall.querySelectorAll('.wall-item')];
+ for(let i=revealOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[revealOrder[i],revealOrder[j]]=[revealOrder[j],revealOrder[i]]}
+ revealOrder.forEach((item,index)=>item.style.setProperty('--flash-delay',(index*34)+'ms'));
+ const wallRevealObserver=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){wall.classList.add('wall-reveal');wallRevealObserver.disconnect()}},{threshold:.12});
+ wallRevealObserver.observe(wall)
+}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ const revealTargets=[...document.querySelectorAll('.gallery-head > *, .work-filters, .wall-hint, .film-heading > *, .film-legend, .about-top > *, .about-composition, .about-copy > *, .services-intro > *, .service-list article, .interlude > *, .contact > div > .eyebrow, .contact > div > h2, .contact > div > .cta, .contact-links, .contact-foot > *')];
+ const revealSteps=new Map();
+ revealTargets.forEach(target=>{const section=target.closest('section');const step=revealSteps.get(section)||0;target.style.setProperty('--photo-delay',step+'ms');revealSteps.set(section,step+90);target.classList.add('photo-reveal-pending')});
+ const photoRevealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.remove('photo-reveal-pending');entry.target.classList.add('photo-reveal-active');photoRevealObserver.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+ revealTargets.forEach(target=>photoRevealObserver.observe(target))
+}
 let current=0;const lb=document.getElementById('lightbox');function show(i){current=(i+works.length)%works.length;const activeIndex=activeWorks.indexOf(works[current]);document.getElementById('lbImage').src=url(works[current].id,1600);document.getElementById('lbCaption').textContent=`${String(activeIndex+1).padStart(2,'0')} / ${activeWorks.length} — ${works[current].category} · ${works[current].name}. ${works[current].description}`;document.getElementById('lbCounter').textContent=String(activeIndex+1).padStart(2,'0')+' / '+activeWorks.length;lb.classList.add('open');document.body.style.overflow='hidden'}function stepWork(direction){const activeIndex=activeWorks.indexOf(works[current]);const nextIndex=(activeIndex+direction+activeWorks.length)%activeWorks.length;show(works.indexOf(activeWorks[nextIndex]))}function hide(){lb.classList.remove('open');document.body.style.overflow=''}document.getElementById('close').onclick=hide;document.getElementById('prev').onclick=()=>stepWork(-1);document.getElementById('next').onclick=()=>stepWork(1);arts.forEach((el,i)=>el.onclick=()=>show(i));lb.addEventListener('click',e=>{if(e.target===lb)hide()});window.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')hide();if(e.key==='ArrowRight')stepWork(1);if(e.key==='ArrowLeft')stepWork(-1)});
 let touchX=0,touchY=0,wheelLocked=false;
 lb.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;touchY=e.changedTouches[0].clientY},{passive:true});
